@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NT</title>
+    <style>
+        body {
+            font-family: "Courier New", Courier, monospace;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100vh;
+            transition: background-color 0.3s, color 0.3s; /* Uklonjena animacija za opacity */
+        }
+
+        body:not(.dark-mode) {
+            background-color: white;
+            color: black;
+        }
+
+        body.dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+
+        .time {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 16px;
+            color: inherit;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .language-toggle {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            color: inherit;
+        }
+
+        .container {
+            padding: 20px;
+            margin-left: 20px;
+            float: left;
+            width: 70%;
+            margin-top: 30px;
+        }
+
+        .contact-container {
+            float: left;
+            width: 25%;
+            padding: 20px;
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+        }
+
+        .section {
+            margin-bottom: 20px;
+            cursor: pointer;
+            font-size: 12px; /* Veličina fonta za sekcije postavljena na 12px */
+        }
+
+        .subsection {
+            margin-left: 20px;
+            display: none; /* Podsekcije su inicijalno skrivene */
+            text-transform: uppercase;
+            font-weight: normal;
+            font-size: 14px;
+            color: inherit;
+        }
+
+        .sub-link {
+            margin-left: 40px;
+            display: none;
+            font-size: 14px;
+            color: inherit;
+        }
+
+        .link {
+            color: inherit;
+            text-decoration: none;
+            display: block;
+            margin: 5px 0;
+            font-size: 16px;
+        }
+
+        .link:hover {
+            color: #555;
+        }
+
+        .contact {
+            font-size: 12px; /* Veličina fonta za CONTACT sekciju postavljena na 12px */
+            cursor: pointer;
+            text-align: left;
+        }
+
+        .contact a {
+            color: inherit;
+            text-decoration: none;
+            font-size: 12px; /* Veličina fonta za linkove u CONTACT sekciji postavljena na 12px */
+        }
+
+        .contact a:hover {
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="time" id="time"></div>
+    <div class="language-toggle">
+        <span id="lang-en" onclick="switchLanguage('en')">EN</span>
+        <span id="lang-fr" onclick="switchLanguage('fr')">FR</span>
+        <span id="lang-sr" onclick="switchLanguage('sr')">SR</span>
+    </div>
+    <div class="theme-toggle" id="theme-toggle">⚫</div>
+
+    <div class="container">
+        <div class="two-column">
+            <div>
+                <div class="section" onclick="toggleSubsections('student-projects')">
+                    <h1 data-content-en="STUDENT PROJECTS" data-content-fr="PROJETS ÉTUDIANTS" data-content-sr="STUDENTSKI PROJEKTI">STUDENT PROJECTS</h1>
+                </div>
+                <div id="student-projects" class="subsection">
+                    <h2 onclick="toggleLinks('outdoor-spaces')" style="cursor: pointer;" data-content-en="Outdoor spaces design" data-content-fr="Conception d'espaces extérieurs" data-content-sr="Dizajn spoljašnjih prostora">Outdoor spaces design</h2>
+                    <div id="outdoor-spaces" class="sub-link">
+                        <a href="https://www.google.uk" class="link" target="_blank" rel="noopener noreferrer" data-content-en="IN PROGRESS 1" data-content-fr="EN COURS 1" data-content-sr="U PROGRESU 1" data-href-en="https://www.google.uk" data-href-fr="https://www.google.fr" data-href-sr="https://www.google.rs">IN PROGRESS 1</a>
+                        <a href="https://www.google.uk" class="link" target="_blank" rel="noopener noreferrer" data-content-en="IN PROGRESS 2" data-content-fr="EN COURS 2" data-content-sr="U PROGRESU 2" data-href-en="https://www.google.uk" data-href-fr="https://www.google.fr" data-href-sr="https://www.google.rs">IN PROGRESS 2</a>
+                        <a href="https://www.google.uk" class="link" target="_blank" rel="noopener noreferrer" data-content-en="IN PROGRESS 3" data-content-fr="EN COURS 3" data-content-sr="U PROGRESU 3" data-href-en="https://www.google.uk" data-href-fr="https://www.google.fr" data-href-sr="https://www.google.rs">IN PROGRESS 3</a>
+                    </div>
+
+                    <h2 onclick="toggleLinks('plant-arrangement')" style="cursor: pointer;" data-content-en="Plant arrangement" data-content-fr="Arrangement de plantes" data-content-sr="Raspored biljaka">Plant arrangement</h2>
+                    <div id="plant-arrangement" class="sub-link">
+                        <a href="https://www.google.uk" class="link" target="_blank" rel="noopener noreferrer" data-content-en="IN PROGRESS 4" data-content-fr="EN COURS 4" data-content-sr="U PROGRESU 4" data-href-en="https://www.google.uk" data-href-fr="https://www.google.fr" data-href-sr="https://www.google.rs">IN PROGRESS 4</a>
+                        <a href="https://www.google.uk" class="link" target="_blank" rel="noopener noreferrer" data-content-en="IN PROGRESS 5" data-content-fr="EN COURS 5" data-content-sr="U PROGRESU 5" data-href-en="https://www.google.uk" data-href-fr="https://www.google.fr" data-href-sr="https://www.google.rs">IN PROGRESS 5</a>
+                    </div>
+
+                    <h2 onclick="toggleLinks('park-lawns')" style="cursor: pointer;" data-content-en="Park & lawn Reconstruction" data-content-fr="Reconstruction de parcs et pelouses" data-content-sr="Rekonstrukcija parkova i travnjaka">Park & lawn Reconstruction</h2>
+                    <div id="park-lawns" class="sub-link">
+                        <a href="https://www.google.uk" class="link" target="_blank" rel="noopener noreferrer" data-content-en="IN PROGRESS 6" data-content-fr="EN COURS 6" data-content-sr="U PROGRESU 6" data-href-en="https://www.google.uk" data-href-fr="https://www.google.fr" data-href-sr="https://www.google.rs">IN PROGRESS 6</a>
+                    </div>
+
+                    <h2 onclick="toggleLinks('seminar-papers')" style="cursor: pointer;" data-content-en="Seminar papers" data-content-fr="Papiers de séminaire" data-content-sr="Seminarski radovi">Seminar papers</h2>
+                    <div id="seminar-papers" class="sub-link">
+                        <a href="https://www.google.uk" class="link" target="_blank" rel="noopener noreferrer" data-content-en="IN PROGRESS 7" data-content-fr="EN COURS 7" data-content-sr="U PROGRESU 7" data-href-en="https://www.google.uk" data-href-fr="https://www.google.fr" data-href-sr="https://www.google.rs">IN PROGRESS 7</a>
+                        <a href="https://www.google.uk" class="link" target="_blank" rel="noopener noreferrer" data-content-en="IN PROGRESS 8" data-content-fr="EN COURS 8" data-content-sr="U PROGRESU 8" data-href-en="https://www.google.uk" data-href-fr="https://www.google.fr" data-href-sr="https://www.google.rs">IN PROGRESS 8</a>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="section" onclick="toggleSubsections('individual-work')">
+                    <h1 data-content-en="INDIVIDUAL WORK" data-content-fr="TRAVAIL INDIVIDUEL" data-content-sr="INDIVIDUALNI RAD">INDIVIDUAL WORK</h1>
+                </div>
+                <div id="individual-work" class="subsection">
+                    <h2 onclick="toggleLinks('private-gardens')" style="cursor: pointer;" data-content-en="Private gardens" data-content-fr="Jardins privés" data-content-sr="Privatni vrtovi">Private gardens</h2>
+                    <div id="private-gardens" class="sub-link">
+                        <a href="https://www.google.uk" class="link" target="_blank" rel="noopener noreferrer" data-content-en="IN PROGRESS 9" data-content-fr="EN COURS 9" data-content-sr="U PROGRESU 9" data-href-en="https://www.google.uk" data-href-fr="https://www.google.fr" data-href-sr="https://www.google.rs">IN PROGRESS 9</a>
+                        <a href="https://www.google.uk" class="link" target="_blank" rel="noopener noreferrer" data-content-en="IN PROGRESS 10" data-content-fr="EN COURS 10" data-content-sr="U PROGRESU 10" data-href-en="https://www.google.uk" data-href-fr="https://www.google.fr" data-href-sr="https://www.google.rs">IN PROGRESS 10</a>
+                    </div>
+
+                    <h2 onclick="toggleLinks('logo-design')" style="cursor: pointer;" data-content-en="Logo design" data-content-fr="Conception de logo" data-content-sr="Dizajn logotipa">Logo design</h2>
+                    <div id="logo-design" class="sub-link">
+                        <a href="https://www.google.uk" class="link" target="_blank" rel="noopener noreferrer" data-content-en="MUZEION (2024)" data-content-fr="MUZEION (2024)" data-content-sr="MUZEION (2024)" data-href-en="https://www.google.uk" data-href-fr="https://www.google.fr" data-href-sr="https://www.google.rs">MUZEION (2024)</a>
+                        <a href="https://www.google.uk" class="link" target="_blank" rel="noopener noreferrer" data-content-en="Young Neurologists Tournament (2024)" data-content-fr="Tournoi des jeunes neurologues (2024)" data-content-sr="Turnir mladih neurolozi (2024)" data-href-en="https://www.google.uk" data-href-fr="https://www.google.fr" data-href-sr="https://www.google.rs">Young Neurologists Tournament (2024)</a>
+                        <a href="https://drive.google.com/file/d/1xSHtos4rbOzb2Ri2bOCEtXd6mVuUaBfw/view?usp=drive_link" class="link" target="_blank" rel="noopener noreferrer" data-content-en="Sava Rakija (2024)" data-href-en="https://drive.google.com/file/d/1XfKo3qAIyvs2c-fCTXAF7SitgnMgeZ8_/view?usp=drive_link" data-href-fr="https://drive.google.com/file/d/1UCcrVm1KG_HRId396k1MnSI-u1a3sQ1O/view?usp=sharing" data-href-sr="https://drive.google.com/file/d/1xSHtos4rbOzb2Ri2bOCEtXd6mVuUaBfw/view?usp=drive_link">Sava Rakija (2024)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-container">
+        <div class="contact" onclick="toggleContactDetails('contact-details')">
+            <h1 data-content-en="CONTACT" data-content-fr="CONTACT" data-content-sr="KONTAKT">CONTACT</h1>
+        </div>
+        <div id="contact-details" style="display: none;">
+            <p><a href="mailto:nklatm@gmail.com" class="link" data-content-en="nklatm@gmail.com" data-content-fr="nklatm@gmail.com" data-content-sr="nklatm@gmail.com">nklatm@gmail.com</a></p>
+            <p data-content-en="(+381)66030646" data-content-fr="(+381)66030646" data-content-sr="(+381)66030646">(+381)66030646</p>
+        </div>
+    </div>
+
+    <script>
+        function updateTime() {
+            var date = new Date();
+            var options = {
+                timeZone: "Europe/Belgrade",
+                hour12: false,
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit"
+            };
+            var timeString = date.toLocaleTimeString("sr-RS", options);
+            document.getElementById("time").textContent = timeString;
+        }
+
+        setInterval(updateTime, 1000);
+
+        document.getElementById("theme-toggle").onclick = function() {
+            const body = document.body;
+            body.classList.toggle("dark-mode");
+            if (body.classList.contains("dark-mode")) {
+                document.getElementById("theme-toggle").innerHTML = "⚪";
+            } else {
+                document.getElementById("theme-toggle").innerHTML = "⚫";
+            }
+        };
+
+        function switchLanguage(lang) {
+            const elements = document.querySelectorAll('[data-content-' + lang + ']');
+            elements.forEach(element => {
+                const content = element.getAttribute('data-content-' + lang);
+                if (content) {
+                    element.textContent = content;
+                }
+            });
+
+            const links = document.querySelectorAll('.link');
+            links.forEach(link => {
+                const langHref = link.getAttribute('data-href-' + lang);
+                if (langHref) {
+                    link.setAttribute('href', langHref);
+                }
+            });
+        }
+
+        function toggleSubsections(sectionId) {
+            const subsections = document.getElementById(sectionId);
+            subsections.style.display = subsections.style.display === "none" || subsections.style.display === "" ? "block" : "none";
+        }
+
+        function toggleLinks(linkId) {
+            const links = document.getElementById(linkId);
+            links.style.display = links.style.display === "none" || links.style.display === "" ? "block" : "none";
+        }
+
+        function toggleContactDetails(contactId) {
+            const contactDetails = document.getElementById(contactId);
+            if (contactDetails.style.display === "none" || contactDetails.style.display === "") {
+                contactDetails.style.display = "block";
+            } else {
+                contactDetails.style.display = "none";
+            }
+        }
+
+        switchLanguage('en'); // Postavljanje jezika na engleski prilikom učitavanja stranice
+        updateTime();
+    </script>
+</body>
+</html>

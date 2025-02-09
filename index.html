@@ -20,7 +20,7 @@
         }
 
         body.dark-mode {
-            background-color: #121212;
+            background-color: #000000;
             color: white;
         }
 
@@ -136,7 +136,7 @@
         <span id="lang-fr" onclick="switchLanguage('fr')">FR</span>
         <span id="lang-sr" onclick="switchLanguage('sr')">SR</span>
     </div>
-    <div class="theme-toggle" id="theme-toggle">⚫</div>
+    <div class="theme-toggle" id="theme-toggle">✳</div>
 
     <div class="container">
         <div class="two-column">
@@ -235,9 +235,9 @@
             const body = document.body;
             body.classList.toggle("dark-mode");
             if (body.classList.contains("dark-mode")) {
-                document.getElementById("theme-toggle").innerHTML = "⚪";
+                document.getElementById("theme-toggle").innerHTML = "☽";
             } else {
-                document.getElementById("theme-toggle").innerHTML = "⚫";
+                document.getElementById("theme-toggle").innerHTML = "✳";
             }
         };
 

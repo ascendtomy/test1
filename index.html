@@ -16,13 +16,37 @@
             font-family: 'Courier New', Courier, monospace;
             text-align: center;
             font-size: 18px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        p {
+            margin: 0 0 10px 0;
+            max-width: 90%;
         }
         a {
             color: blue;
             text-decoration: none;
+            white-space: nowrap; /* Sprečava lomljenje linka */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 90%; /* Ograničava širinu linka na mobilnim uređajima */
         }
         a:hover {
             text-decoration: underline;
+        }
+        /* Responzivni dizajn za mobilne uređaje */
+        @media screen and (max-width: 600px) {
+            body {
+                font-size: 16px; /* Manji font za mobilne uređaje */
+                padding: 15px;
+            }
+            p {
+                max-width: 100%;
+            }
+            a {
+                font-size: 14px; /* Smanjena veličina fonta za link */
+                max-width: 100%;
+            }
         }
     </style>
 </head>
